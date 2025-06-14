@@ -1,0 +1,6 @@
+@AMLReleaseAPI_HostAddress = http://localhost:5019
+
+GET {{AMLReleaseAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
