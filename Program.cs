@@ -4,11 +4,11 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 
 //// Add configuration from environment variables
-//builder.Configuration.AddEnvironmentVariables();
+builder.Configuration.AddEnvironmentVariables();
 
 //// Use the port provided by environment or default to 8080
-//var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-//builder.WebHost.UseUrls($"http://*:{port}");
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
 
 
 // Add services to the container
