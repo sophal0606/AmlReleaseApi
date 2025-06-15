@@ -3,14 +3,13 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure Kestrel to listen on port 
-//builder.WebHost.ConfigureKestrel(options =>
-//{
-//    options.ListenAnyIP(8080); // HTTP on port 8080
-//    //options.ListenAnyIP(8081); // HTTPS on port 8081
-//    // Or for HTTPS:
-//    // options.ListenAnyIP(8843, configure => configure.UseHttps());
-//});
+//// Add configuration from environment variables
+builder.Configuration.AddEnvironmentVariables();
+
+//// Use the port provided by environment or default to 8080
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 
 // Add services to the container
 builder.Services.AddControllers()
