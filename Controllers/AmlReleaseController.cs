@@ -71,68 +71,68 @@ namespace AmlReleaseApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Approve AML transaction
-        /// </summary>
-        /// <param name="extRef">External reference</param>
-        /// <param name="scanId">Scan ID</param>
-        /// <param name="screeningId">Screening ID</param>
-        /// <param name="remark">Optional remark</param>
-        [HttpPost("approve")]
-        public async Task<ActionResult<AmlReleaseResponse>> ApproveTransaction(
-            [FromQuery] string extRef,
-            [FromQuery] string scanId,
-            [FromQuery] string screeningId,
-            [FromQuery] string? remark = null)
-        {
-            var request = new AmlReleaseRequest
-            {
-                ApprovalStatus = "A",
-                ExtRef = extRef,
-                SourceSystem = "TEST_OTT/OTCAPP",
-                TrnChannel = "TEST_OTT/OTCAPP",
-                ScanID = scanId,
-                CurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Remark = remark ?? "Transaction approved",
-                TotalScreening = 1,
-                TotalHit = 1,
-                CurrentScreeningID = screeningId,
-                PreviousScreeningID = screeningId
-            };
+        ///// <summary>
+        ///// Approve AML transaction
+        ///// </summary>
+        ///// <param name="extRef">External reference</param>
+        ///// <param name="scanId">Scan ID</param>
+        ///// <param name="screeningId">Screening ID</param>
+        ///// <param name="remark">Optional remark</param>
+        //[HttpPost("approve")]
+        //public async Task<ActionResult<AmlReleaseResponse>> ApproveTransaction(
+        //    [FromQuery] string extRef,
+        //    [FromQuery] string scanId,
+        //    [FromQuery] string screeningId,
+        //    [FromQuery] string? remark = null)
+        //{
+        //    var request = new AmlReleaseRequest
+        //    {
+        //        ApprovalStatus = "A",
+        //        ExtRef = extRef,
+        //        SourceSystem = "TEST_OTT/OTCAPP",
+        //        TrnChannel = "TEST_OTT/OTCAPP",
+        //        ScanID = scanId,
+        //        CurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+        //        Remark = remark ?? "Transaction approved",
+        //        TotalScreening = 1,
+        //        TotalHit = 1,
+        //        CurrentScreeningID = screeningId,
+        //        PreviousScreeningID = screeningId
+        //    };
 
-            return await ProcessAmlRelease(request);
-        }
+        //    return await ProcessAmlRelease(request);
+        //}
 
-        /// <summary>
-        /// Reject AML transaction
-        /// </summary>
-        /// <param name="extRef">External reference</param>
-        /// <param name="scanId">Scan ID</param>
-        /// <param name="screeningId">Screening ID</param>
-        /// <param name="remark">Optional remark</param>
-        [HttpPost("reject")]
-        public async Task<ActionResult<AmlReleaseResponse>> RejectTransaction(
-            [FromQuery] string extRef,
-            [FromQuery] string scanId,
-            [FromQuery] string screeningId,
-            [FromQuery] string? remark = null)
-        {
-            var request = new AmlReleaseRequest
-            {
-                ApprovalStatus = "R",
-                ExtRef = extRef,
-                SourceSystem = "TEST_OTT/OTCAPP",
-                TrnChannel = "TEST_OTT/OTCAPP",
-                ScanID = scanId,
-                CurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Remark = remark ?? "Transaction rejected",
-                TotalScreening = 1,
-                TotalHit = 1,
-                CurrentScreeningID = screeningId,
-                PreviousScreeningID = screeningId
-            };
+        ///// <summary>
+        ///// Reject AML transaction
+        ///// </summary>
+        ///// <param name="extRef">External reference</param>
+        ///// <param name="scanId">Scan ID</param>
+        ///// <param name="screeningId">Screening ID</param>
+        ///// <param name="remark">Optional remark</param>
+        //[HttpPost("reject")]
+        //public async Task<ActionResult<AmlReleaseResponse>> RejectTransaction(
+        //    [FromQuery] string extRef,
+        //    [FromQuery] string scanId,
+        //    [FromQuery] string screeningId,
+        //    [FromQuery] string? remark = null)
+        //{
+        //    var request = new AmlReleaseRequest
+        //    {
+        //        ApprovalStatus = "R",
+        //        ExtRef = extRef,
+        //        SourceSystem = "TEST_OTT/OTCAPP",
+        //        TrnChannel = "TEST_OTT/OTCAPP",
+        //        ScanID = scanId,
+        //        CurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+        //        Remark = remark ?? "Transaction rejected",
+        //        TotalScreening = 1,
+        //        TotalHit = 1,
+        //        CurrentScreeningID = screeningId,
+        //        PreviousScreeningID = screeningId
+        //    };
 
-            return await ProcessAmlRelease(request);
-        }
+        //    return await ProcessAmlRelease(request);
+        //}
     }
 }
