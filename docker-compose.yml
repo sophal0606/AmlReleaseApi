@@ -1,0 +1,22 @@
+#yaml
+version: '3.8'
+
+services:
+  webapp:
+    image: mydotnetapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=myappdb;User=sa;Password=your_password;
+  
+  db:
+    image: mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: "your_password"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
