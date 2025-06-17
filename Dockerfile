@@ -1,3 +1,11 @@
+#FROM node:16-alpine
+#WORKDIR /app
+#COPY package*.json ./
+#RUN npm install
+#COPY . .
+#EXPOSE 3000
+#CMD ["npm", "start"]
+
 # See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
